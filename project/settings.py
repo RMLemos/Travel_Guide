@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'sightseeing',
     'attractions',
+    'reviews',
 ]
 
 MIDDLEWARE = [
