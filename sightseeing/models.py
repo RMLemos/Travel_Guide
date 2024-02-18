@@ -4,6 +4,7 @@ from django.db.models import signals
 from django.template.defaultfilters import slugify
 
 from attractions.models import MustSee
+from locations.models import Address
 
 
 class Place(models.Model):
@@ -12,6 +13,7 @@ class Place(models.Model):
     status = models.BooleanField('Approved', default=False)
     slug = models.SlugField('Slug', unique=True, default=None, null=True, blank=True, max_length=255)
     must_see = models.ManyToManyField(MustSee, verbose_name='Must-see', blank=True)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
