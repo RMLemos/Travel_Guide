@@ -12,6 +12,7 @@ class Place(models.Model):
     description = models.TextField('Description', max_length=255)
     status = models.BooleanField('Approved', default=False)
     slug = models.SlugField('Slug', unique=True, default=None, null=True, blank=True, max_length=255)
+    image = models.ImageField(upload_to='place', null=True, blank=True)
     must_see = models.ManyToManyField(MustSee, verbose_name='Must-see', blank=True)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
 

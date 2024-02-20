@@ -14,6 +14,7 @@ class MustSee(models.Model):
     description = models.TextField('Description')
     opening_hours = models.TextField('Opening hours')
     min_age = models.IntegerField('Minimun Age')
+    image = models.ImageField(upload_to='attractions', null=True, blank=True)
 
     def __str__(self):
         return self.name
