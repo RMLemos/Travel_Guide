@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
+
 from sightseeing.api.viewsets import PlaceViewSet
 from attractions.api.viewsets import MustseeViewSet
 from locations.api.viewsets import AddressViewSet
@@ -20,4 +22,5 @@ router.register(r'rating', RatingViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', obtain_auth_token)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
